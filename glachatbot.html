@@ -4,101 +4,159 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GLA UNIVERSITY MATHURA</title>
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #fce4ec);
       color: #333;
       margin: 0;
       padding: 0;
     }
-
     header {
-      background-color: #004080;
+      background-color: #003366;
       color: #fff;
       padding: 20px;
       text-align: center;
+      animation: slideDown 1s ease-out forwards;
     }
-
     nav a {
-      color: #fff;
+      color: #ffcc00;
       margin: 0 15px;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+      position: relative;
+      transition: color 0.3s;
     }
-
+    nav a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #ffcc00;
+      transition: width .3s;
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
     nav a:hover {
-      text-decoration: underline;
+      color: #fff;
     }
-
     section {
       padding: 30px;
       background-color: #fff;
       margin: 20px auto;
-      width: 80%;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      width: 85%;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeIn 1.2s ease forwards;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
+    section:hover {
+      transform: scale(1.02);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    h1, h2 {
+      font-family: 'Bebas Neue', cursive;
+      letter-spacing: 1px;
+      text-shadow: 1px 1px 2px #333;
+    }
     h2 {
-      color: #004080;
+      color: #003366;
+      margin-bottom: 15px;
     }
-
     ul {
       list-style: square;
       padding-left: 20px;
     }
-
     #chatbot {
-      background-color: #e8f0fe;
+      background-color: #e3ecff;
     }
-
     #chat-box {
-      border: 1px solid #ccc;
+      border: 2px solid #ccc;
       padding: 15px;
-      height: 250px;
+      height: 280px;
       overflow-y: auto;
       background: #fff;
-      border-radius: 5px;
+      border-radius: 8px;
       margin-bottom: 15px;
+      animation: fadeIn 1s ease forwards;
     }
-
     #user-input {
       width: 70%;
-      padding: 10px;
-      border-radius: 5px;
+      padding: 12px;
+      border-radius: 8px;
       border: 1px solid #ccc;
+      font-size: 16px;
     }
-
     button {
-      padding: 10px 20px;
-      background-color: #004080;
+      padding: 12px 25px;
+      background: linear-gradient(135deg, #004080, #0066cc);
       color: white;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
       cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s ease, transform 0.3s ease;
     }
-
     button:hover {
-      background-color: #0066cc;
+      background: linear-gradient(135deg, #0066cc, #004080);
+      transform: scale(1.1);
     }
-
     footer {
-      background-color: #004080;
+      background-color: #003366;
       color: #fff;
       text-align: center;
-      padding: 15px;
-      position: relative;
-      bottom: 0;
-      width: 100%;
-      margin-top: 30px;
+      padding: 20px;
+      margin-top: 40px;
+      animation: slideUp 1s ease-out forwards;
+    }
+    a.website-link {
+      color: #003366;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a.website-link:hover {
+      text-decoration: underline;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes slideDown {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(0); }
+    }
+    @keyframes slideUp {
+      0% { transform: translateY(100%); }
+      100% { transform: translateY(0); }
+    }
+    .bot-msg {
+      animation: slideBot 0.5s forwards;
+    }
+    .user-msg {
+      animation: slideUser 0.5s forwards;
+    }
+    @keyframes slideBot {
+      from { transform: translateX(-100px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes slideUser {
+      from { transform: translateX(100px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>GLA UNIVERSITY,MATHURA</h1>
+    <h1>GLA UNIVERSITY, MATHURA</h1>
     <nav>
       <a href="#home">Home</a>
       <a href="#about">About</a>
@@ -109,13 +167,13 @@
   </header>
 
   <section id="home">
-    <h2>Welcome to GLA UNIVERSITY,MATHURA</h2>
+    <h2>Welcome to GLA UNIVERSITY, MATHURA</h2>
     <p>Empowering students with knowledge and skills since 2001.</p>
   </section>
 
   <section id="about">
     <h2>About Us</h2>
-    <p>GLA UNIVERSITY,MATHURA is located in UP (MATHURA), India,  accredited with NAAC A+ and AICTE approval.</p>
+    <p>GLA University is located in Mathura, UP, India, accredited with NAAC A+ and AICTE approval.</p>
   </section>
 
   <section id="courses">
@@ -134,7 +192,7 @@
     <h2>Contact Us</h2>
     <p>Phone: +91-9927064017</p>
     <p>Email: glauniversity@gla.ac.in</p>
-    <a href="www.gla.ac.in"><p>Website: www.gla.ac.in</p></a>
+    <p>Website: <a class="website-link" href="https://www.gla.ac.in" target="_blank">www.gla.ac.in</a></p>
   </section>
 
   <!-- Chatbot Section -->
@@ -146,74 +204,90 @@
   </section>
 
   <footer>
-    <p>&copy; 2025 GLA UNIVERSITY,MATHURA. All rights reserved.</p>
+    <p>&copy; 2025 GLA UNIVERSITY, MATHURA. All rights reserved.</p>
   </footer>
 
   <script>
     const college_data = {
-    college_info: {
-      name: "XYZ Institute of Technology",
-      location: "New Delhi, India",
-      established: "2001",
-      affiliation: "ABC University",
-      accreditation: "NAAC A+, AICTE Approved",
-      contact: "+91-9876543210",
-      email: "info@xyzcollege.edu.in",
-      website: "www.xyzcollege.edu.in"
-    },
-    courses: [
-      "B.Tech (CSE, ECE, ME, CE) - ₹1,25,000/year",
-      "BBA - ₹85,000/year",
-      "BCA - ₹90,000/year",
-      "MBA - ₹1,50,000/year",
-      "MCA - ₹1,20,000/year",
-      "Diploma (Polytechnic) - ₹60,000/year"
-    ],
-    admission_process: "Apply online at www.xyzcollege.edu.in or offline at the college campus. Entrance exams accepted: JEE Main, CAT, MAT.",
-    scholarships: "We offer Merit-based scholarships (10%-50%), Sports quota scholarships (up to 40%), and Government scholarships for SC/ST/OBC.",
-    hostel: "Yes, separate hostels for boys and girls. Fees range from ₹80,000 to ₹1,20,000 per year with facilities like Wi-Fi, Mess, Gym, and Laundry.",
-    placements: "Top recruiters: TCS, Infosys, Wipro, HCL, Amazon. Average package: ₹5 LPA. Highest package: ₹12 LPA.",
-    facilities: "Library, Wi-Fi, Labs, Sports Complex, Auditorium, Cafeteria, Medical facility.",
-    important_dates: "Application Start: April 1, 2025 | Last Date: June 30, 2025 | Entrance Exam: July 15, 2025 | Result: July 25, 2025 | Counselling: August 2025",
-  };
+      college_info: {
+        name: "GLA University",
+        location: "Mathura, UP, India",
+        established: "2001",
+        affiliation: "GLA University",
+        accreditation: "NAAC A+, AICTE Approved",
+        contact: "+91-9927064017",
+        email: "glauniversity@gla.ac.in",
+        website: "www.gla.ac.in"
+      },
+      courses: [
+        "B.Tech (CSE, ECE, ME, CE) - ₹1,25,000/year",
+        "BBA - ₹85,000/year",
+        "BCA - ₹90,000/year",
+        "MBA - ₹1,50,000/year",
+        "MCA - ₹1,20,000/year",
+        "Diploma (Polytechnic) - ₹60,000/year"
+      ],
+      admission_process: "Apply online at www.gla.ac.in or offline at the campus. Entrance exams accepted: JEE Main, CAT, MAT.",
+      scholarships: "Merit-based (10%-50%), Sports quota (up to 40%), and Government scholarships for SC/ST/OBC.",
+      hostel: "Separate boys and girls hostels. Fees: ₹80,000 to ₹1,20,000 per year with Wi-Fi, Mess, Gym, Laundry.",
+      placements: "Top recruiters: TCS, Infosys, Wipro, HCL, Amazon. Average package: ₹5 LPA. Highest: ₹12 LPA.",
+      facilities: "Library, Wi-Fi, Labs, Sports Complex, Auditorium, Cafeteria, Medical.",
+      important_dates: "Application Start: April 1, 2025 | Last Date: June 30, 2025 | Entrance Exam: July 15 | Result: July 25 | Counselling: August 2025",
+      tpo_faqs: [
+        "Q: Who are the major recruiters?\nA: TCS, Infosys, Wipro, HCL, Amazon, Capgemini, Cognizant.",
+        "Q: What is the average placement package?\nA: The average package is ₹5 LPA.",
+        "Q: Do you offer internship opportunities?\nA: Yes, internships are provided through our partner companies.",
+        "Q: Is there any placement training?\nA: Yes, we provide soft skills, aptitude, and technical training sessions.",
+        "Q: How many companies visit the campus every year?\nA: Around 80+ reputed companies visit every year.",
+        "Q: Does GLA University have tie-ups with industries?\nA: Yes, GLA has MOUs with leading industries for better placement opportunities."
+      ]
+    };
 
-  function sendMessage() {
-    const userInput = document.getElementById('user-input').value.trim();
-    const chatBox = document.getElementById('chat-box');
-    if (!userInput) return;
+    // Enter key functionality
+    const userInput = document.getElementById('user-input');
+    userInput.addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') sendMessage();
+    });
 
-    chatBox.innerHTML += `<div><b>You:</b> ${userInput}</div>`;
-    const message = userInput.toLowerCase();
-    let reply = "";
+    function sendMessage() {
+      const chatBox = document.getElementById('chat-box');
+      const message = userInput.value.trim();
+      if (!message) return;
+      chatBox.innerHTML += `<div class="user-msg"><b>You:</b> ${message}</div>`;
+      userInput.value = '';
 
-    if (message.includes("course") || message.includes("program")) {
-      reply = "📚 Our Courses:<br>" + college_data.courses.join("<br>");
-    } else if (message.includes("admission") || message.includes("apply")) {
-      reply = "📝 Admission Process:<br>" + college_data.admission_process;
-    } else if (message.includes("scholarship")) {
-      reply = "🎓 Scholarships:<br>" + college_data.scholarships;
-    } else if (message.includes("hostel")) {
-      reply = "🏠 Hostel Info:<br>" + college_data.hostel;
-    } else if (message.includes("placement") || message.includes("job")) {
-      reply = "💼 Placements:<br>" + college_data.placements;
-    } else if (message.includes("facility") || message.includes("facilities")) {
-      reply = "🏢 Facilities:<br>" + college_data.facilities;
-    } else if (message.includes("date") || message.includes("important")) {
-      reply = "📅 Important Dates:<br>" + college_data.important_dates;
-    } else if (message.includes("contact") || message.includes("phone")) {
-      reply = `📞 Contact Us: ${college_data.college_info.contact}`;
-    } else if (message.includes("website")) {
-      reply = `🌐 Visit our website: <a href="http://${college_data.college_info.website}" target="_blank">${college_data.college_info.website}</a>`;
-    } else if (message.includes("about") || message.includes("college") || message.includes("info")) {
-      reply = `🏫 College Info:<br>Name: ${college_data.college_info.name}<br>Location: ${college_data.college_info.location}<br>Established: ${college_data.college_info.established}<br>Affiliation: ${college_data.college_info.affiliation}<br>Accreditation: ${college_data.college_info.accreditation}`;
-    } else {
-      reply = "🤖 I'm your virtual assistant! You can ask about our <b>courses</b>, <b>admission</b>, <b>scholarships</b>, <b>hostel</b>, <b>placements</b>, <b>facilities</b>, <b>important dates</b>, <b>contact</b>, or <b>website</b>.";
+      const lowerMsg = message.toLowerCase();
+      let reply = "";
+
+      if (lowerMsg.includes("course") || lowerMsg.includes("program")) {
+        reply = "📚 Our Courses:<br>" + college_data.courses.join("<br>");
+      } else if (lowerMsg.includes("admission") || lowerMsg.includes("apply")) {
+        reply = "📝 Admission Process:<br>" + college_data.admission_process;
+      } else if (lowerMsg.includes("scholarship")) {
+        reply = "🎓 Scholarships:<br>" + college_data.scholarships;
+      } else if (lowerMsg.includes("hostel")) {
+        reply = "🏠 Hostel Info:<br>" + college_data.hostel;
+      } else if (lowerMsg.includes("placement") || lowerMsg.includes("job")) {
+        reply = "💼 Placements:<br>" + college_data.placements;
+      } else if (lowerMsg.includes("facility") || lowerMsg.includes("facilities")) {
+        reply = "🏢 Facilities:<br>" + college_data.facilities;
+      } else if (lowerMsg.includes("date") || lowerMsg.includes("important")) {
+        reply = "📅 Important Dates:<br>" + college_data.important_dates;
+      } else if (lowerMsg.includes("contact") || lowerMsg.includes("phone")) {
+        reply = `📞 Contact Us: ${college_data.college_info.contact}`;
+      } else if (lowerMsg.includes("website")) {
+        reply = `🌐 Visit our website: <a href="https://${college_data.college_info.website}" target="_blank">${college_data.college_info.website}</a>`;
+      } else if (lowerMsg.includes("about") || lowerMsg.includes("college") || lowerMsg.includes("info")) {
+        reply = `🏫 College Info:<br>Name: ${college_data.college_info.name}<br>Location: ${college_data.college_info.location}<br>Established: ${college_data.college_info.established}<br>Affiliation: ${college_data.college_info.affiliation}<br>Accreditation: ${college_data.college_info.accreditation}`;
+      } else if (lowerMsg.includes("tpo") || lowerMsg.includes("placement faq") || lowerMsg.includes("training")) {
+        reply = "📖 TPO (Training and Placement Office) FAQs:<br>" + college_data.tpo_faqs.join("<br><br>");
+      } else {
+        reply = "🤖 I'm your virtual assistant! You can ask about <b>courses</b>, <b>admission</b>, <b>scholarships</b>, <b>hostel</b>, <b>placements</b>, <b>facilities</b>, <b>important dates</b>, <b>contact</b>, <b>website</b>, or <b>TPO FAQs</b>.";
+      }
+
+      chatBox.innerHTML += `<div class="bot-msg"><b>Bot:</b> ${reply}</div><br>`;
+      chatBox.scrollTop = chatBox.scrollHeight;
     }
-
-    chatBox.innerHTML += `<div><b>Bot:</b> ${reply}</div><br>`;
-    chatBox.scrollTop = chatBox.scrollHeight;
-    document.getElementById('user-input').value = '';
-  }
   </script>
 </body>
 </html>
