@@ -150,28 +150,70 @@
   </footer>
 
   <script>
-    function sendMessage() {
-      const userInput = document.getElementById('user-input').value;
-      if (!userInput.trim()) return;
+    const college_data = {
+    college_info: {
+      name: "XYZ Institute of Technology",
+      location: "New Delhi, India",
+      established: "2001",
+      affiliation: "ABC University",
+      accreditation: "NAAC A+, AICTE Approved",
+      contact: "+91-9876543210",
+      email: "info@xyzcollege.edu.in",
+      website: "www.xyzcollege.edu.in"
+    },
+    courses: [
+      "B.Tech (CSE, ECE, ME, CE) - ₹1,25,000/year",
+      "BBA - ₹85,000/year",
+      "BCA - ₹90,000/year",
+      "MBA - ₹1,50,000/year",
+      "MCA - ₹1,20,000/year",
+      "Diploma (Polytechnic) - ₹60,000/year"
+    ],
+    admission_process: "Apply online at www.xyzcollege.edu.in or offline at the college campus. Entrance exams accepted: JEE Main, CAT, MAT.",
+    scholarships: "We offer Merit-based scholarships (10%-50%), Sports quota scholarships (up to 40%), and Government scholarships for SC/ST/OBC.",
+    hostel: "Yes, separate hostels for boys and girls. Fees range from ₹80,000 to ₹1,20,000 per year with facilities like Wi-Fi, Mess, Gym, and Laundry.",
+    placements: "Top recruiters: TCS, Infosys, Wipro, HCL, Amazon. Average package: ₹5 LPA. Highest package: ₹12 LPA.",
+    facilities: "Library, Wi-Fi, Labs, Sports Complex, Auditorium, Cafeteria, Medical facility.",
+    important_dates: "Application Start: April 1, 2025 | Last Date: June 30, 2025 | Entrance Exam: July 15, 2025 | Result: July 25, 2025 | Counselling: August 2025",
+  };
 
-      const chatBox = document.getElementById('chat-box');
-      chatBox.innerHTML += `<b>You:</b> ${userInput}<br>`;
+  function sendMessage() {
+    const userInput = document.getElementById('user-input').value.trim();
+    const chatBox = document.getElementById('chat-box');
+    if (!userInput) return;
 
-      let botReply = '';
-      if (userInput.toLowerCase().includes('course')) {
-        botReply = 'We offer B.Tech, BBA, BCA, MBA, MCA, and Polytechnic courses.';
-      } else if (userInput.toLowerCase().includes('admission')) {
-        botReply = 'You can apply online at www.xyzcollege.edu.in or visit our campus.';
-      } else if (userInput.toLowerCase().includes('contact')) {
-        botReply = 'Contact us at +91-9876543210 or email info@xyzcollege.edu.in';
-      } else {
-        botReply = "I'm sorry, I didn't understand that. Please ask about courses, admissions, or contact.";
-      }
+    chatBox.innerHTML += `<div><b>You:</b> ${userInput}</div>`;
+    const message = userInput.toLowerCase();
+    let reply = "";
 
-      chatBox.innerHTML += `<b>Bot:</b> ${botReply}<br><br>`;
-      chatBox.scrollTop = chatBox.scrollHeight;
-      document.getElementById('user-input').value = '';
+    if (message.includes("course") || message.includes("program")) {
+      reply = "📚 Our Courses:<br>" + college_data.courses.join("<br>");
+    } else if (message.includes("admission") || message.includes("apply")) {
+      reply = "📝 Admission Process:<br>" + college_data.admission_process;
+    } else if (message.includes("scholarship")) {
+      reply = "🎓 Scholarships:<br>" + college_data.scholarships;
+    } else if (message.includes("hostel")) {
+      reply = "🏠 Hostel Info:<br>" + college_data.hostel;
+    } else if (message.includes("placement") || message.includes("job")) {
+      reply = "💼 Placements:<br>" + college_data.placements;
+    } else if (message.includes("facility") || message.includes("facilities")) {
+      reply = "🏢 Facilities:<br>" + college_data.facilities;
+    } else if (message.includes("date") || message.includes("important")) {
+      reply = "📅 Important Dates:<br>" + college_data.important_dates;
+    } else if (message.includes("contact") || message.includes("phone")) {
+      reply = `📞 Contact Us: ${college_data.college_info.contact}`;
+    } else if (message.includes("website")) {
+      reply = `🌐 Visit our website: <a href="http://${college_data.college_info.website}" target="_blank">${college_data.college_info.website}</a>`;
+    } else if (message.includes("about") || message.includes("college") || message.includes("info")) {
+      reply = `🏫 College Info:<br>Name: ${college_data.college_info.name}<br>Location: ${college_data.college_info.location}<br>Established: ${college_data.college_info.established}<br>Affiliation: ${college_data.college_info.affiliation}<br>Accreditation: ${college_data.college_info.accreditation}`;
+    } else {
+      reply = "🤖 I'm your virtual assistant! You can ask about our <b>courses</b>, <b>admission</b>, <b>scholarships</b>, <b>hostel</b>, <b>placements</b>, <b>facilities</b>, <b>important dates</b>, <b>contact</b>, or <b>website</b>.";
     }
+
+    chatBox.innerHTML += `<div><b>Bot:</b> ${reply}</div><br>`;
+    chatBox.scrollTop = chatBox.scrollHeight;
+    document.getElementById('user-input').value = '';
+  }
   </script>
 </body>
 </html>
