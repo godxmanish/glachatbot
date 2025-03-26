@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GLA UNIVERSITY MATHURA</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #004080;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      padding: 30px;
+      background-color: #fff;
+      margin: 20px auto;
+      width: 80%;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #004080;
+    }
+
+    ul {
+      list-style: square;
+      padding-left: 20px;
+    }
+
+    #chatbot {
+      background-color: #e8f0fe;
+    }
+
+    #chat-box {
+      border: 1px solid #ccc;
+      padding: 15px;
+      height: 250px;
+      overflow-y: auto;
+      background: #fff;
+      border-radius: 5px;
+      margin-bottom: 15px;
+    }
+
+    #user-input {
+      width: 70%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #004080;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0066cc;
+    }
+
+    footer {
+      background-color: #004080;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>GLA UNIVERSITY,MATHURA</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#courses">Courses</a>
+      <a href="#contact">Contact</a>
+      <a href="#chatbot">Chatbot</a>
+    </nav>
+  </header>
+
+  <section id="home">
+    <h2>Welcome to GLA UNIVERSITY,MATHURA</h2>
+    <p>Empowering students with knowledge and skills since 2001.</p>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>GLA UNIVERSITY,MATHURA is located in UP (MATHURA), India,  accredited with NAAC A+ and AICTE approval.</p>
+  </section>
+
+  <section id="courses">
+    <h2>Our Courses</h2>
+    <ul>
+      <li>B.Tech (CSE, ECE, ME, CE)</li>
+      <li>BBA</li>
+      <li>BCA</li>
+      <li>MBA</li>
+      <li>MCA</li>
+      <li>Diploma (Polytechnic)</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Phone: +91-9927064017</p>
+    <p>Email: glauniversity@gla.ac.in</p>
+    <a href="www.gla.ac.in"><p>Website: www.gla.ac.in</p></a>
+  </section>
+
+  <!-- Chatbot Section -->
+  <section id="chatbot">
+    <h2>College Chatbot 🤖</h2>
+    <div id="chat-box"></div>
+    <input type="text" id="user-input" placeholder="Ask something...">
+    <button onclick="sendMessage()">Send</button>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 GLA UNIVERSITY,MATHURA. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function sendMessage() {
+      const userInput = document.getElementById('user-input').value;
+      if (!userInput.trim()) return;
+
+      const chatBox = document.getElementById('chat-box');
+      chatBox.innerHTML += `<b>You:</b> ${userInput}<br>`;
+
+      let botReply = '';
+      if (userInput.toLowerCase().includes('course')) {
+        botReply = 'We offer B.Tech, BBA, BCA, MBA, MCA, and Polytechnic courses.';
+      } else if (userInput.toLowerCase().includes('admission')) {
+        botReply = 'You can apply online at www.xyzcollege.edu.in or visit our campus.';
+      } else if (userInput.toLowerCase().includes('contact')) {
+        botReply = 'Contact us at +91-9876543210 or email info@xyzcollege.edu.in';
+      } else {
+        botReply = "I'm sorry, I didn't understand that. Please ask about courses, admissions, or contact.";
+      }
+
+      chatBox.innerHTML += `<b>Bot:</b> ${botReply}<br><br>`;
+      chatBox.scrollTop = chatBox.scrollHeight;
+      document.getElementById('user-input').value = '';
+    }
+  </script>
+</body>
+</html>
